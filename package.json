@@ -2,9 +2,10 @@
   "name": "rest-api",
   "version": "1.0.0",
   "description": "rest api using mongodb",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/thelazytrojan/rest-api/issues"
   },
-  "homepage": "https://github.com/thelazytrojan/rest-api#readme"
+  "homepage": "https://github.com/thelazytrojan/rest-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.12"
+  }
 }
