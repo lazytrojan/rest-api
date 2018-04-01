@@ -4,14 +4,25 @@ module.exports = function(app, db) {
 
     app.get('/notes/:id', (req, res) => {
     const id = req.params.id;
-    const details = { '_id': new ObjectID(id) };
-    db.collection('notes').findOne(details, (err, item) => {
-      if (err) {
-        res.send({'error':'An error has occurred'});
-      } else {
-        res.send(item);
-      }
-    });
+    if (id != "all") {
+      const details = { '_id': new ObjectID(id) };
+      db.collection('notes').findOne(details, (err, item) => {
+        if (err) {
+          res.send({'error':'An error has occurred'});
+        } else {
+          res.send(item);
+        }
+      });
+    } else {
+      db.collection('notes').find().toArray( (err, item) => {
+        if (err) {
+          res.send({'error':'An error has occurred'});
+        } else {
+          res.send(item);
+        }
+      });
+    }
+    
     });
 
     app.post('/notes', (req, res) => {
